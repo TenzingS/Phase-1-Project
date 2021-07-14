@@ -5,20 +5,49 @@
 // 5. Add JS to execute search to api when they click search button
 // 6. Add JS to render results (call 2 and 3)
 
-window.addEventListener("DOMContentLoaded", (event) => {
-  console.log("DOM fully loaded and parsed");
-  document.querySelector("button").addEventListener("click", function () {
-    event.preventDefault();
-    console.log('hi')
-    document.querySelectorAll('.recommendation-card').forEach(item => item.remove());
-    fetchdata(document.querySelector("#search-item").value);
-    
-  });
-});
+document.addEventListener("DOMContentLoaded", () => {
+  searchForm()
+     });
+ 
+ function searchForm(){
+   const form = document.querySelector("button")
+   form.addEventListener("click", (e) =>  {
+     e.preventDefault();
+     const byDrinks = document.getElementById('by-drink')
+     const byIngredients = document.getElementById('by-ingredient')
+ 
+     if (byDrinks.checked){
+       const string = document.querySelector("#search-item").value
+       fetchdata(string);
+     }
+ 
+     if (byIngredients.checked){
+       const string = document.querySelector("#search-item").value
+       fetchByIngredients(string);
+     }
+   })
+   const random = document.getElementById('random')
+   random.addEventListener('click', () => {
+     fetchRandom()
+   })
+ }
+
 function fetchdata(string) {
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${string}`)
     .then((res) => res.json())
     .then((data) => renderCocktails(data));
+}
+
+function fetchByIngredients(ingredients){
+  fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredients}`)
+  .then(res => res.json())
+  .then(data => renderCockTails(data))
+}
+
+function fetchRandom(){
+  fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
+  .then(res => res.json())
+  .then(data => renderCockTails(data))
 }
 
 function renderCocktails(data) {
