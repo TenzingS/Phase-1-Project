@@ -21,14 +21,17 @@ function fetchdata(string) {
 }
 
 function renderCocktails(data) {
+
   console.log(data);
   if (!data.drinks) {
     const sorry = document.createElement("div");
     sorry.innerText = "Sorry, we found no cocktails matching your search criteria. Please try again.";
+    sorry.id = 'sorry'
     document.querySelector("#cocktail-card-container").append(sorry);
     return;
   }
   data.drinks.forEach((drink) => {
+    document.querySelector('#sorry').remove()
     let likes = 0;
     const newDiv = document.createElement("div");
 
