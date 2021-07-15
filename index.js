@@ -1,27 +1,36 @@
-// 1. create search input box and button (html) & <ul> to hold search results
-// 2. create a function that appends the HTML you want to display a search result to the ul
-// 3. create a function to append a comment box to a search result item
-// 4. Style all the above w/ css
-// 5. Add JS to execute search to api when they click search button
-// 6. Add JS to render results (call 2 and 3)
+document.addEventListener("DOMContentLoaded", () => {
+  searchForm()
+     });
+ 
+ function searchForm(){
+   document.getElementById("search").addEventListener("click", (e) =>  {
+      e.preventDefault();
+      document.querySelectorAll(".recommendation-card").forEach((item) => item.remove());
 
-window.addEventListener("DOMContentLoaded", (event) => {
-  console.log("DOM fully loaded and parsed");
-  document.querySelector("button").addEventListener("click", function () {
-    event.preventDefault();
-    console.log("hi");
-    document.querySelectorAll(".recommendation-card").forEach((item) => item.remove());
-    fetchdata(document.querySelector("#search-item").value);
-    document.querySelector('#sorry').remove()
-  });
-});
-function fetchdata(string) {
-  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${string}`)
-    .then((res) => res.json())
-    .then((data) => renderCocktails(data));
+      const string = document.querySelector("#search-item").value
+      fetchdata(string);
+      document.querySelector('#sorry').remove()
+  })
+  const random = document.getElementById('random')
+      random.addEventListener('click', () => {
+        document.querySelectorAll(".recommendation-card").forEach((item) => item.remove());
+        fetchRandom()
+   })
 }
 
-function renderCocktails(data) {
+function fetchdata(name) {
+  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`)
+  .then(res => res.json())
+  .then(data => renderCockTails(data));
+}
+
+function fetchRandom(){
+fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
+.then(res => res.json())
+.then(data => renderCockTails(data))
+}
+
+function renderCockTails(data) {
 
   console.log(data);
   if (!data.drinks) {
