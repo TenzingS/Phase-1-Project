@@ -12,6 +12,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     console.log("hi");
     document.querySelectorAll(".recommendation-card").forEach((item) => item.remove());
     fetchdata(document.querySelector("#search-item").value);
+    document.querySelector('#sorry').remove()
   });
 });
 function fetchdata(string) {
@@ -31,7 +32,7 @@ function renderCocktails(data) {
     return;
   }
   data.drinks.forEach((drink) => {
-    document.querySelector('#sorry').remove()
+    
     let likes = 0;
     const newDiv = document.createElement("div");
 
