@@ -1,10 +1,36 @@
 #title {
     text-align: center;
     background-color: white;
-    color: red;
+    color:  rgb(245, 105, 128);
     margin: 0;
     padding: 10px;
 }
+
+#search {
+  background-color: white;
+    color: black;
+    padding: 10px;
+    /* font-size: 16px; */
+    border: none;
+    cursor: pointer;
+}
+img {
+  max-width: 90%;
+  height: auto;
+}
+
+#search:hover, #search:focus {
+  background-color: yellow;
+}
+
+#by-drink {
+  cursor: pointer;
+}
+
+#by-letter {
+  cursor: pointer;
+}
+
 
 #random {
     background-color: white;
@@ -64,3 +90,65 @@
   /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
   /* .show {display:block;} */
  
+  body {
+    padding: 0;
+    margin: 1em;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    color: #000;
+    background: #ffffff;
+  }
+  h1, h2, h3, h4, p {
+    margin: 0;
+    font-weight: normal;
+    font-size: 12px;
+  }
+  h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color:midnightblue;
+    font-family: "Times New Roman", sans-serif;
+  }
+  h2 {font-weight: bold;}
+  a {color: #000; text-decoration: none;}
+  input, button {
+    border: 1px solid #E6E6E6;
+    padding: 3px;
+    border-radius: 0;
+  }
+  div.reccomendation-card button {
+    background-color: #F7F7F7;
+    border: 1px solid #E6E6E6;
+    cursor: pointer;
+  }
+  div.reccomendation-card {
+   display: grid;
+   grid-gap: 20px;
+  }
+
+  #cocktail-card-container {
+    color: black;
+    width: 400px;
+    margin: auto;
+    border: 1px solid black;
+    padding: 24px 32px 32px;
+    text-align: left;
+    display: grid;
+    grid-gap: 20px;
+  }
+  img{
+    width: 200px
+  }
+  #homeimg{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  button{
+      background: none;
+      cursor: pointer;
+      display: inline;
+  }
+  button:hover {
+    background-color: #E6E6E6;
+  }
