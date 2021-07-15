@@ -3,22 +3,26 @@
 <head>
     <script defer src="./index.js"></script>
         <link rel="stylesheet" href="./style.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1 id="title">Cocktail Bar</h1>
-
-    </header>
-    <div></div>
-    <input id='search-item' placeholder="search for cocktails">
-    <div></div>
-    <input type='checkbox' id='bydrink'>search by cocktail
-    <div></div>
-    <input type='checkbox' id='byingredient'>search by ingredient<br>
+  <header>
+    <div class="image">
+      <h1 class="some-text">CockTail Bar</h1>
+    </div>
+  </header>
+  
     
+    <input id='search-item' placeholder="Search for Cocktails...">
+    <br>
     <div id= "sorry"></div>
-    <button id='search'>search</button><br>
-    <button id='random'></button><br>
-    <div id='cocktail-card-container'></div>   
+    <button id='search'>Search</button><br>
+    <br>
+    <button id='random'>Get a Random Drink</button>
+    <br>
+    <div id='cocktail-card-container'>
+      <img id="homeimg" src="https://i.pinimg.com/originals/13/73/f3/1373f3c5c6a846f969e959f0b50fbeab.png">
+    </div>
 </body>
 </html>

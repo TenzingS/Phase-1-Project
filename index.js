@@ -12,6 +12,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     console.log("hi");
     document.querySelectorAll(".recommendation-card").forEach((item) => item.remove());
     fetchdata(document.querySelector("#search-item").value);
+    document.querySelector('#sorry').remove()
   });
 });
 function fetchdata(string) {
@@ -63,21 +64,25 @@ function renderCocktails(data) {
       ingredientArray.push(li);
       ingredientArray.forEach((listElement) => ingredients.append(listElement));
     }
-    const instructions = document.createElement("li");
+    const instructions = document.createElement("p");
     instructions.innerText = drink.strInstructions;
     ingredients.append(instructions);
 
     recH4.append(ingredients);
     newDiv.classList.add("recommendation-card");
 
-    const likesDiv = document.createElement("div");
+    const likesDiv = document.createElement("span");
     const likesButton = document.createElement("button");
-    const comments = document.createElement("div");
+
+    const comments = document.createElement("ul");
     const commentInput = document.createElement("input");
+    commentInput.placeholder = "comment..."
     const commentBtn = document.createElement("button");
-    likesButton.innerText = "like it";
-    likesDiv.innerText = `${likes} likes`;
-    commentBtn.innerText = "comment";
+    commentBtn.innerText = "Submit";
+
+    likesButton.innerText = "likes";
+    likesDiv.innerText = `${likes} `;
+
 
     newDiv.append(cocktailName, picture, recH4, likesDiv, likesButton, comments, commentInput, commentBtn);
     document.querySelector("#cocktail-card-container").append(newDiv);
@@ -86,10 +91,12 @@ function renderCocktails(data) {
       const newComment = document.createElement("p");
       newComment.innerText = commentInput.value;
       comments.append(newComment);
+      commentInput.value = ""
     });
+
     likesButton.addEventListener("click", function () {
       likes++;
-      likesDiv.innerText = `${likes} likes`;
+      likesDiv.innerText = `${likes} `;
     });
   });
 }
