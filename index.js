@@ -32,7 +32,7 @@ function renderCocktails(data) {
     return;
   }
   data.drinks.forEach((drink) => {
-    document.querySelector('#sorry').remove()
+    
     let likes = 0;
     const newDiv = document.createElement("div");
 
@@ -100,5 +100,4 @@ function renderCocktails(data) {
     });
   });
 }
-     
-     
+
