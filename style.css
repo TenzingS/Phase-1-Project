@@ -6,8 +6,9 @@ body {
 h1{
   font-family: 'Pacifico';
   position: absolute;
-  left: 760px;
   top: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
@@ -51,7 +52,7 @@ background-color: white;
 }
 
 #search:hover, #search:focus {
-background-color: yellow;
+background-color: whitesmoke;
 }
 
 
@@ -64,7 +65,7 @@ background-color: yellow;
 }
 
 #random:hover, #random:focus {
-  background-color: yellow;
+  background-color: whitesmoke;
 }
 
 body {

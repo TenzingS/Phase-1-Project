@@ -31,8 +31,6 @@ fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
 }
 
 function renderCockTails(data) {
-
-  console.log(data);
   if (!data.drinks) {
     const sorry = document.createElement("div");
     sorry.innerText = "Sorry, we found no cocktails matching your search criteria. Please try again.";
@@ -41,14 +39,12 @@ function renderCockTails(data) {
     return;
   }
   data.drinks.forEach((drink) => {
-    
     let likes = 0;
     const newDiv = document.createElement("div");
 
     const cocktailName = document.createElement("h2");
     cocktailName.innerText = drink.strDrink;
 
-    // add img
     const picture = document.createElement("img");
     picture.src = drink.strDrinkThumb;
 
@@ -69,12 +65,12 @@ function renderCockTails(data) {
       } else {
         li.innerText = liquor;
       }
-
       ingredientArray.push(li);
-      ingredientArray.forEach((listElement) => ingredients.append(listElement));
     }
+      ingredientArray.forEach((listElement) => ingredients.append(listElement));
     const instructions = document.createElement("p");
     instructions.innerText = drink.strInstructions;
+    instructions.style.fontWeight = 'bold';
     ingredients.append(instructions);
 
     recH4.append(ingredients);
@@ -92,13 +88,13 @@ function renderCockTails(data) {
     likesButton.innerText = "likes";
     likesDiv.innerText = `${likes} `;
 
-
     newDiv.append(cocktailName, picture, recH4, likesDiv, likesButton, comments, commentInput, commentBtn);
     document.querySelector("#cocktail-card-container").append(newDiv);
 
     commentBtn.addEventListener("click", function () {
       const newComment = document.createElement("p");
       newComment.innerText = commentInput.value;
+      newComment.style.fontWeight = 'italics';
       comments.append(newComment);
       commentInput.value = ""
     });
