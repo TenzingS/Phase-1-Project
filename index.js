@@ -46,6 +46,7 @@ function renderCockTails(data) {
     cocktailName.innerText = drink.strDrink;
 
     const picture = document.createElement("img");
+    picture.setAttribute("id","drinkImg");
     picture.src = drink.strDrinkThumb;
 
     const recH4 = document.createElement("h4");
@@ -61,13 +62,17 @@ function renderCockTails(data) {
       const liquor = drink[`strIngredient${i}`];
       const measurement = drink[`strMeasure${i}`];
       if (measurement) {
-        li.innerText = `${liquor} - ${measurement}`; // Tequlia - 1.5oz
+        li.innerText = `${measurement} ${liquor}`; // 1.5oz Tequlia
       } else {
         li.innerText = liquor;
       }
       ingredientArray.push(li);
     }
-      ingredientArray.forEach((listElement) => ingredients.append(listElement));
+    ingredientArray.forEach((listElement) => ingredients.append(listElement));
+    
+    linebreak = document.createElement("br");
+    ingredients.appendChild(linebreak);
+
     const instructions = document.createElement("p");
     instructions.innerText = drink.strInstructions;
     instructions.style.fontWeight = 'bold';
