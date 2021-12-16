@@ -39,7 +39,7 @@ function renderCockTails(data) {
     return;
   }
   data.drinks.forEach((drink) => {
-    let likes = 0;
+    let likes = Math.floor(Math.random() * 100)+1;
     const newDiv = document.createElement("div");
 
     const cocktailName = document.createElement("h2");
@@ -83,6 +83,7 @@ function renderCockTails(data) {
 
     const likesDiv = document.createElement("span");
     const likesButton = document.createElement("button");
+    likesButton.setAttribute("id","likebtn")
 
     const comments = document.createElement("ul");
     const commentInput = document.createElement("input");
