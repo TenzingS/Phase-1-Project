@@ -81,18 +81,37 @@ function renderCockTails(data) {
     recH4.append(ingredients);
     newDiv.classList.add("recommendation-card");
 
+
     const likesDiv = document.createElement("span");
+    likesDiv.setAttribute("class","likes")
     const likesButton = document.createElement("button");
-    likesButton.setAttribute("id","likebtn")
+    likesDiv.appendChild(likesButton);
+
+    const whiteHeart = '\u2661';
+    const blackHeart = '\u2665';
+    likesButton.textContent = whiteHeart;
+    likesDiv.innerText = `${likes}`;
+
+    likesButton.addEventListener("click", toggle)
+    
+    function toggle() {
+      if (likesButton.textContent == whiteHeart) {
+        likesButton.textContent = blackHeart
+        likes++;
+        likesDiv.innerText = `${likes} `;
+      }
+      else{
+        likesButton.textContent = whiteHeart;
+        likes--;
+        likesDiv.innerText = `${likes} `;
+      }
+    };
 
     const comments = document.createElement("ul");
     const commentInput = document.createElement("input");
     commentInput.placeholder = "comment..."
     const commentBtn = document.createElement("button");
     commentBtn.innerText = "Submit";
-
-    likesButton.innerText = "likes";
-    likesDiv.innerText = `${likes} `;
 
     newDiv.append(cocktailName, picture, recH4, likesDiv, likesButton, comments, commentInput, commentBtn);
     document.querySelector("#cocktail-card-container").append(newDiv);
@@ -104,11 +123,7 @@ function renderCockTails(data) {
       comments.append(newComment);
       commentInput.value = ""
     });
-
-    likesButton.addEventListener("click", function () {
-      likes++;
-      likesDiv.innerText = `${likes} `;
-    });
+    
   });
 }
 
