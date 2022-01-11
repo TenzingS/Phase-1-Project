@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const random = document.getElementById('random')
       random.addEventListener('click', () => {
         document.querySelectorAll(".recommendation-card").forEach((item) => item.remove());
+        document.querySelector('#sorry').remove()
         fetchRandom()
    })
 }
@@ -50,7 +51,7 @@ function renderCockTails(data) {
     picture.src = drink.strDrinkThumb;
 
     const recH4 = document.createElement("h4");
-    recH4.innerText = "Recipe";
+    recH4.innerText = "Recipe:";
 
     const ingredients = document.createElement("ul");
     const ingredientArray = [];
