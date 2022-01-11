@@ -27,6 +27,8 @@ h1{
   color: whitesmoke;
   font-size: 5em;
   display: block;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 }
 
 #search-item {
@@ -151,7 +153,17 @@ button{
     outline: none;
 }
 button:hover {
-  background-color: whitesmoke;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.commentBtn {
+  border-color: black;
+}
+
+.commentBtn:hover {
+  background-color: black;
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 input {

@@ -112,6 +112,7 @@ function renderCockTails(data) {
     const commentInput = document.createElement("input");
     commentInput.placeholder = "comment..."
     const commentBtn = document.createElement("button");
+    commentBtn.setAttribute('class','commentBtn')
     commentBtn.innerText = "Submit";
 
     newDiv.append(cocktailName, picture, recH4, likesDiv, likesButton, comments, commentInput, commentBtn);
